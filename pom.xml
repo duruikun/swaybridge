@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>swaybridge-common</module>
+        <module>swaybridge-ws-listener-core</module>
     </modules>
 
     <properties>
@@ -20,6 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hutool.version>5.8.42</hutool.version>
         <web3j.version>4.14.0</web3j.version>
+        <swaybridge.version>1.0-SNAPSHOT</swaybridge.version>
     </properties>
 
     <parent>
