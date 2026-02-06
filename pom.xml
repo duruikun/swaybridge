@@ -12,6 +12,7 @@
     <modules>
         <module>swaybridge-common</module>
         <module>swaybridge-ws-listener-core</module>
+        <module>swaybridge-demo</module>
     </modules>
 
     <properties>

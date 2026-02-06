@@ -1,4 +1,4 @@
-package com.swaybridge.common.smartcontracts.sepolia.usdt;
+package com.swaybridge.common.smart_contracts.sepolia.usdt;
 
 import io.reactivex.Flowable;
 import java.math.BigInteger;

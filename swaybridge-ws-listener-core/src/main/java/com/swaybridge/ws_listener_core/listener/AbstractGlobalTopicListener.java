@@ -129,7 +129,7 @@ public abstract class AbstractGlobalTopicListener {
 
     private void handleLog(Log elog) {
         try {
-            if (gate().allow(elog)) {
+            if (null == gate() || gate().allow(elog)) {
                 onEvent(elog);
             }
         } catch (Exception e) {

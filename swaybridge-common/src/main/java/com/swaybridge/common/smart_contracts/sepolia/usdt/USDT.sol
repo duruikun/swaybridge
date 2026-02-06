@@ -5,7 +5,7 @@ pragma solidity ^0.8.20;
  * @title Sepolia测试网USDT合约（复刻主网核心功能）
  * 对齐主网USDT：6位小数、ERC-20核心方法、转账返回bool
  */
-contract USDT {
+contract Usdt {
     // ===== 核心属性（和主网USDT一致）=====
     string public constant name = "Tether USD";
     string public constant symbol = "USDT";

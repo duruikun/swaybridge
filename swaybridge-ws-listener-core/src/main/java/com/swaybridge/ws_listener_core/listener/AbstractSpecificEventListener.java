@@ -16,9 +16,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public abstract class AbstractEventListener<E> {
+public abstract class AbstractSpecificEventListener<E> {
 
-    private static final Logger log = LoggerFactory.getLogger(AbstractEventListener.class);
+    private static final Logger log = LoggerFactory.getLogger(AbstractSpecificEventListener.class);
 
     private final String wsUrl;
 
@@ -37,7 +37,7 @@ public abstract class AbstractEventListener<E> {
                     r -> new Thread(r, getClass().getSimpleName() + "-watchdog")
             );
 
-    protected AbstractEventListener(String wsUrl) {
+    protected AbstractSpecificEventListener(String wsUrl) {
         this.wsUrl = wsUrl;
     }
 
