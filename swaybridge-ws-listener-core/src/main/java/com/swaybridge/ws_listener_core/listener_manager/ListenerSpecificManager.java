@@ -24,7 +24,7 @@ public class ListenerSpecificManager implements SmartLifecycle {
     public void start() {
         if (!running.compareAndSet(false, true)) return;
 
-        log.info("启动 Listener 数量: {}", listeners.size());
+        log.info("启动 Specific Listener 数量: {}", listeners.size());
         listeners.forEach(AbstractSpecificEventListener::start);
     }
 
@@ -32,7 +32,7 @@ public class ListenerSpecificManager implements SmartLifecycle {
     public void stop() {
         if (!running.compareAndSet(true, false)) return;
 
-        log.info("停止所有 Listener");
+        log.info("停止所有 Specific Listener");
         listeners.forEach(AbstractSpecificEventListener::shutdown);
     }
 

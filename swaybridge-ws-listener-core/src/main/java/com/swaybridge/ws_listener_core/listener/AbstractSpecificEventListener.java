@@ -55,7 +55,7 @@ public abstract class AbstractSpecificEventListener<E> {
 
     public void start() {
         synchronized (this) {
-            log.info("启动 Listener: {}", getClass().getSimpleName());
+            log.info("启动 Specific Listener: {}", getClass().getSimpleName());
             rebuildClient();
             startSubscription();
             startWatchdog();
@@ -64,7 +64,7 @@ public abstract class AbstractSpecificEventListener<E> {
 
     public void shutdown() {
         synchronized (this) {
-            log.info("关闭 Listener: {}", getClass().getSimpleName());
+            log.info("关闭 Specific Listener: {}", getClass().getSimpleName());
             stopSubscription();
             stopClient();
             watchdog.shutdownNow();
@@ -147,15 +147,15 @@ public abstract class AbstractSpecificEventListener<E> {
     private void restartInternal() {
         synchronized (this) {
             try {
-                log.warn("开始重启 Listener: {}", getClass().getSimpleName());
+                log.warn("开始重启 Specific Listener: {}", getClass().getSimpleName());
                 stopSubscription();
                 stopClient();
                 TimeUnit.SECONDS.sleep(5);
                 rebuildClient();
                 startSubscription();
-                log.info("Listener 重启成功: {}", getClass().getSimpleName());
+                log.info("Specific Listener 重启成功: {}", getClass().getSimpleName());
             } catch (Exception e) {
-                log.error("Listener 重启失败，将由 watchdog 再次尝试", e);
+                log.error("Specific Listener 重启失败，将由 watchdog 再次尝试", e);
             }
         }
     }
