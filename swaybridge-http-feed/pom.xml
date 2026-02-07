@@ -13,11 +13,24 @@
     <artifactId>swaybridge-http-feed</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.swaybridge.common</groupId>
             <artifactId>swaybridge-common</artifactId>
             <version>${swaybridge.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.swaybridge.datarepository</groupId>
+            <artifactId>swaybridge-data-repository</artifactId>
+            <version>${swaybridge.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -16,6 +16,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * 监听具体的某个合约的某个具体事件, 需要通过泛型传入具体的事件
+ *
+ * @param <E>
+ */
 public abstract class AbstractSpecificEventListener<E> {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractSpecificEventListener.class);
