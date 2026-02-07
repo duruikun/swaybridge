@@ -78,3 +78,25 @@ CREATE INDEX idx_topic0 ON blockchain_event (topic0);
 
 
 
+#### sway_user.sql
+
+```sql
+create table sway_user
+(
+    id              bigint auto_increment primary key,
+    chain_id        bigint       null,
+    network         varchar(32)  null,
+    address         varchar(128) null,
+    username        varchar(64)  null,
+    password        varchar(255) null,
+    nick_name       varchar(64)  null,
+    email           varchar(128) null,
+    create_time     varchar(32)  null,
+    update_time     varchar(32)  null,
+    last_login_time varchar(32)  null,
+    constraint uk_address_chain
+        unique (address, chain_id)
+)
+    comment '全局用户表';
+```
+

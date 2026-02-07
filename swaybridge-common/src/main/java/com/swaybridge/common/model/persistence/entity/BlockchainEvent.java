@@ -2,10 +2,14 @@ package com.swaybridge.common.model.persistence.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * 与数据库表字段保持严格一致, 如果数据表发生修改, 需要同步修改common.model.persistence.entity和
+ */
 @Data
-public class BlockchainEvent {
+public class BlockchainEvent implements Serializable {
 
     private Long id;
     private Long chainId;           // 链ID，如 1 / 11155111

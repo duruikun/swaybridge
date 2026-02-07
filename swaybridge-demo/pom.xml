@@ -21,14 +21,20 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.swaybridge.wslistenercore</groupId>
             <artifactId>swaybridge-ws-listener-core</artifactId>
             <version>${swaybridge.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.swaybridge.auth</groupId>
+            <artifactId>swaybridge-auth</artifactId>
+            <version>${swaybridge.version}</version>
         </dependency>
 
     </dependencies>

@@ -34,6 +34,7 @@
         <module>swaybridge-ws-listener-core</module>
         <module>swaybridge-demo</module>
         <module>swaybridge-auth</module>
+        <module>swaybridge-data-repository</module>
     </modules>
 
     <build>
