@@ -99,14 +99,15 @@ public abstract class AbstractSpecificEventListener<E> {
         webSocketService = null;
     }
 
+    @SuppressWarnings("all")
     private void startSubscription() {
         subscription = subscribe(web3j)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .subscribe(
-                        this::onEvent,
-                        e -> {
-                            log.error("订阅异常，触发重启: {}", getClass().getSimpleName(), e);
+                        event -> this.onEvent(event),
+                        err -> {
+                            log.error("订阅异常，触发重启: {}", getClass().getSimpleName(), err);
                             restartAsync();
                         }
                 );
