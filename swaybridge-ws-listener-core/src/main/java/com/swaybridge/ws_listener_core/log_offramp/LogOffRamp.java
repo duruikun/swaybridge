@@ -1,4 +1,4 @@
-package com.swaybridge.ws_listener_core.log_gateway;
+package com.swaybridge.ws_listener_core.log_offramp;
 
 import org.web3j.protocol.core.methods.response.Log;
 
@@ -6,7 +6,7 @@ import org.web3j.protocol.core.methods.response.Log;
  * Log 语义闸门
  * 决定一个 Log 是否“符合某种事件语义”
  */
-public interface LogGateway {
+public interface LogOffRamp {
 
     /**
      * @return true  → 允许进入 onEvent

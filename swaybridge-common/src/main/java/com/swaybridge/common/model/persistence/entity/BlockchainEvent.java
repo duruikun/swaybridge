@@ -37,6 +37,8 @@ public class BlockchainEvent {
     private String status;          // PENDING / CONFIRMED / REORGED
     private String extra;           // 预留扩展字段(JSON)
 
+    private String source;          // 事件来源：WS / HTTP
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

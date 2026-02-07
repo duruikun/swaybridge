@@ -58,6 +58,9 @@ CREATE TABLE blockchain_event
     -- 扩展字段
     extra            JSON COMMENT '预留扩展字段',
 
+    -- 事件来源
+    source           VARCHAR(16)  NULL COMMENT '事件来源：WS / HTTP',
+
     -- 时间
     created_at       TIMESTAMP   DEFAULT CURRENT_TIMESTAMP,
     updated_at       TIMESTAMP   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -67,10 +70,10 @@ CREATE TABLE blockchain_event
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
-CREATE INDEX idx_block ON blockchain_event(chain_id, block_number);
-CREATE INDEX idx_contract_event ON blockchain_event(contract_address, event_name);
-CREATE INDEX idx_tx ON blockchain_event(tx_hash);
-CREATE INDEX idx_topic0 ON blockchain_event(topic0);
+CREATE INDEX idx_block ON blockchain_event (chain_id, block_number);
+CREATE INDEX idx_contract_event ON blockchain_event (contract_address, event_name);
+CREATE INDEX idx_tx ON blockchain_event (tx_hash);
+CREATE INDEX idx_topic0 ON blockchain_event (topic0);
 ```
 
 

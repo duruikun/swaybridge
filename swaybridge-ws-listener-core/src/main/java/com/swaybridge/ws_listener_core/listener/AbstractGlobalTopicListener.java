@@ -1,7 +1,7 @@
 package com.swaybridge.ws_listener_core.listener;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.swaybridge.ws_listener_core.log_gateway.LogGateway;
+import com.swaybridge.ws_listener_core.log_offramp.LogOffRamp;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import org.slf4j.Logger;
@@ -54,10 +54,10 @@ public abstract class AbstractGlobalTopicListener {
 
     protected abstract String topic0();
 
-    protected abstract LogGateway gate();
+    protected abstract LogOffRamp logOffRamp();
 
     /**
-     * 只会接收到「已通过 gate 的 Log」
+     * 只会接收到「已通过 logOffRamp 的 Log」
      */
     protected abstract void onEvent(Log log);
 
@@ -110,9 +110,7 @@ public abstract class AbstractGlobalTopicListener {
         EthFilter filter = new EthFilter(
                 org.web3j.protocol.core.DefaultBlockParameterName.LATEST,
                 org.web3j.protocol.core.DefaultBlockParameterName.LATEST,
-                CollectionUtil.isEmpty(contractAddressList)
-                        ? Collections.emptyList()
-                        : contractAddressList
+                CollectionUtil.isEmpty(contractAddressList) ? Collections.emptyList() : contractAddressList
         ).addSingleTopic(topic0());
 
         subscription = web3j.ethLogFlowable(filter)
@@ -129,7 +127,7 @@ public abstract class AbstractGlobalTopicListener {
 
     private void handleLog(Log elog) {
         try {
-            if (null == gate() || gate().allow(elog)) {
+            if (null == logOffRamp() || logOffRamp().allow(elog)) {
                 onEvent(elog);
             }
         } catch (Exception e) {
