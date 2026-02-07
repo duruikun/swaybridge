@@ -63,7 +63,7 @@ public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
         event.setSource("WS");
         event.setCreatedAt(LocalDateTime.now());
 
-        System.out.println();
+        System.out.println(event);
     }
 
     @SuppressWarnings("all")

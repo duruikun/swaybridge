@@ -8,7 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.swaybridge.auth", "com.swaybridge.datarepository"})
+//@ComponentScan({"com.swaybridge.auth", "com.swaybridge.datarepository", "com.swaybridge.demo"})
+@ComponentScan(basePackages = "com.swaybridge")
 @MapperScan("com.swaybridge.datarepository.mapper")
 @EnableSpecificEventListener
 @EnableGlobalListener

@@ -66,7 +66,7 @@ public class UsdtTransferListenerSpecific extends AbstractSpecificEventListener<
         event.setSource("WS");
         event.setCreatedAt(LocalDateTime.now(ZoneId.of("Asia/Shanghai")));
 
-        System.out.println();
+        System.out.println(event);
     }
 
     @SuppressWarnings("all")
