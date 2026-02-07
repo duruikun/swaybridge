@@ -37,6 +37,12 @@
             <version>${swaybridge.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.swaybridge.httpfeed</groupId>
+            <artifactId>swaybridge-http-feed</artifactId>
+            <version>${swaybridge.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
