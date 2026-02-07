@@ -35,6 +35,7 @@
         <module>swaybridge-demo</module>
         <module>swaybridge-auth</module>
         <module>swaybridge-data-repository</module>
+        <module>swaybridge-http-feed</module>
     </modules>
 
     <build>

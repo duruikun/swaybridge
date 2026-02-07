@@ -5,6 +5,7 @@ web3:
   # 网络配置
   rpc:
     ws-url: wss://sepolia.infura.io/ws/v3/7efe2645a3054720a2041488c1e27329
+    http-endpoint: https://sepolia.infura.io/v3/7efe2645a3054720a2041488c1e27329
 
 spring:
   data:
