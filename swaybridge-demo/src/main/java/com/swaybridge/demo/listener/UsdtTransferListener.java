@@ -25,7 +25,7 @@ public class UsdtTransferListener extends AbstractSpecificEventListener<USDT.Tra
 
     private final static String usdtAddress = "0x1932277d08f673d045d264ae90097bb99c772d92";
 
-    protected UsdtTransferListener(@Value("${web3.rpc.ws-url}") String wsUrl) {
+    protected UsdtTransferListener(@Value("${web3.rpc.ws-url-sepolia}") String wsUrl) {
         super(wsUrl);
     }
 

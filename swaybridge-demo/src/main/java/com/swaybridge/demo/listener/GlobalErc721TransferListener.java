@@ -21,7 +21,7 @@ import java.util.Map;
 @Component
 public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
 
-    protected GlobalErc721TransferListener(@Value("${web3.rpc.ws-url}") String wsUrl) {
+    protected GlobalErc721TransferListener(@Value("${web3.rpc.ws-url-sepolia}") String wsUrl) {
         super(wsUrl, null);
     }
 

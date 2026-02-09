@@ -32,7 +32,7 @@ public class MyERC20UsdtTransferListener extends AbstractSpecificEventListener<M
 
     private static final String CONTRACT_ADDRESS = "0x6B7D360173Be3846Ef2b2e95Ad8F9D48eE9E7195";
 
-    protected MyERC20UsdtTransferListener(@Value("${web3.rpc.ws-url}") String wsUrl) {
+    protected MyERC20UsdtTransferListener(@Value("${web3.rpc.ws-url-sepolia}") String wsUrl) {
         super(wsUrl);
     }
 
