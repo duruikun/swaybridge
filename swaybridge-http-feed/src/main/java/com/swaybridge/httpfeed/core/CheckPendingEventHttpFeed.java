@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.datarepository.entity.BlockchainEventPO;
 import com.swaybridge.datarepository.service.BlockchainEventService;
+import jakarta.annotation.Resource;
+import jakarta.annotation.Resources;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.web3j.protocol.Web3j;
@@ -28,6 +31,7 @@ public class CheckPendingEventHttpFeed {
     private Integer chainConfirms;
 
     @Autowired
+    @Qualifier("sepolia-web3j")
     private Web3j web3j;
 
     @Autowired
