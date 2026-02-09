@@ -6,17 +6,18 @@
 2. 业务模块需继承entity的类, 并加以PO后缀, 举例: entity包中 BlockchainEvent.java, 在业务模块中使用需要:
    BlockchainEventPO extends BlockchainEvent
 3. 如果你希望通过Java开发区块链智能合约相关业务, 并且希望提供以下功能:
-    1. 完备的Web3登录鉴权功能（用户钱包登录, 签名, 返回jwt, Redis存储登录信息等）
-    2. WebSocket实时监听某个智能合约的某个事件（比如你想监听地址为0x123..合约的Transfer事件）
-    3. WebSocket实时监听整个区块链的某个事件（比如你想监听Sepolia上的所有Transfer事件）
+    1. 完备的Web3登录鉴权功能（用户钱包登录、签名、验签、生成JWT返回（基于Sa-Token）、Redis存储登录信息等）
+    2. WebSocket实时监听某个智能合约的某个事件（比如你想监听地址为0x123..合约的Transfer事件，全自动运行，只需要在启动类开启@EnableSpecificEventListener注解）
+    3. WebSocket实时监听整个区块链的某个事件（比如你想监听Sepolia上的所有Transfer事件，@EnableGlobalListener）
    4. 监听整个区块链事件时，支持自定义更具体的事件监听过滤器
-   5. 完善的WebSocket链接管理机制和断连重启方案
-    6. WebSocket断连, 重启时, 针对未监听到遗漏的事件，提供完备的HTTP-RPC补偿方案
-    7. 事件最终一致性状态确认：通过定时任务定时自动轮询pending状态的事件，检查其是否真正上链，并自动更新状态
-   8. 现成的事件持久化（MySQL）方案，开箱即用
-   9. 现成的Kafka事件消息驱动模型，开箱即用
-   10. ”可插拔“的声明式Springboot注解开发风格，所有功能均可通过启动类添加指定注解开启/关闭功能
-   11. Springboot模块化开发，模块分类清晰，二开难度极低，可自由扩缩容，按需引入依赖即可拥有对应能力
+   5. 完善的WebSocket链接管理机制和断连自动重启方案（无需配置，框架自带）
+    6. WebSocket断连、重启时，针对未监听到遗漏的事件，框架提供完备的HTTP-RPC补偿方案（@EnableEventHttpFeedSchedule）
+    7. 事件最终一致性状态确认：通过定时任务定时自动轮询pending状态的事件，检查其是否真正上链，并自动更新状态（框架全自动执行，只需要在启动类添加一个@EnableCheckingPendingEventSchedule注解搞定）
+    8. 支持合约级、事件级的细粒度endpoint设置，极简配置，就能轻松实现监听不同链的不同合约事件
+   9. 现成的事件持久化（MySQL）方案，开箱即用
+   10. 现成的Kafka事件消息驱动模型，开箱即用
+   11. ”可插拔“的声明式Springboot注解开发风格，所有功能均可通过启动类添加指定注解开启/关闭功能
+   12. Springboot模块化开发，模块分类清晰，二开难度极低，可自由扩缩容，按需引入依赖即可拥有对应能力
 
 ### sql文件
 
