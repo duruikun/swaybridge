@@ -119,7 +119,7 @@ public abstract class AbstractGlobalTopicListener {
                 .subscribe(
                         this::handleLog,
                         e -> {
-                            log.error("订阅异常，触发重启: {}", getClass().getSimpleName(), e);
+                            log.error("AbstractGlobalTopicListener 订阅异常，触发重启: {}", getClass().getSimpleName(), e);
                             restartAsync();
                         }
                 );

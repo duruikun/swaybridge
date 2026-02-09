@@ -112,7 +112,7 @@ public abstract class AbstractSpecificEventListener<E> {
                 .subscribe(
                         event -> this.onEvent(event),
                         err -> {
-                            log.error("订阅异常，触发重启: {}", getClass().getSimpleName(), err);
+                            log.error("AbstractSpecificEventListener 订阅异常，触发重启: {}", getClass().getSimpleName(), err);
                             restartAsync();
                         }
                 );

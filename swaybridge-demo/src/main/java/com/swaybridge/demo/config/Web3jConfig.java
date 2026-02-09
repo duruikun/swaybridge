@@ -12,8 +12,8 @@ import java.util.concurrent.ScheduledExecutorService;
 @Configuration
 public class Web3jConfig {
 
-    @Value("${web3.rpc.http-endpoint}")
-    private String httpEndpoint;
+    @Value("${web3.rpc.http-endpoint-sepolia}")
+    private String httpEndpointSepolia;
 
     /**
      * 只用于补偿查询, 不订阅, 不轮询
@@ -23,7 +23,7 @@ public class Web3jConfig {
     @Bean("sepolia-web3j")
     public Web3j web3j() {
         ScheduledExecutorService dummy = Executors.newSingleThreadScheduledExecutor();
-        return Web3j.build(new HttpService(httpEndpoint), Long.MAX_VALUE, dummy);
+        return Web3j.build(new HttpService(httpEndpointSepolia), Long.MAX_VALUE, dummy);
     }
 
 }
