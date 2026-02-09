@@ -5,8 +5,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.datarepository.entity.BlockchainEventPO;
 import com.swaybridge.datarepository.service.BlockchainEventService;
-import jakarta.annotation.Resource;
-import jakarta.annotation.Resources;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,13 +23,13 @@ import java.util.List;
  */
 @Slf4j
 @Component
-public class CheckPendingEventHttpFeed {
+public class SimpleSepoliaCheckPendingEventHttpFeed implements CheckPendingBeanFactory {
 
     @Value("${chain.confirms}")
     private Integer chainConfirms;
 
     @Autowired
-    @Qualifier("sepolia-web3j")
+    @Qualifier("web3j-sepolia")
     private Web3j web3j;
 
     @Autowired

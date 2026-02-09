@@ -36,7 +36,7 @@ public class MyERC20UsdtTransferHttpFeed extends AbstractSpecificOneContractEven
             )
     );
 
-    protected MyERC20UsdtTransferHttpFeed(@Qualifier("sepolia-web3j") Web3j web3j, KafkaTemplate<String, String> kafkaTemplate, ChainHttpScanSyncService chainSyncService, @Value("${chain.http.scan-step}") int scanStep) {
+    protected MyERC20UsdtTransferHttpFeed(@Qualifier("web3j-sepolia") Web3j web3j, KafkaTemplate<String, String> kafkaTemplate, ChainHttpScanSyncService chainSyncService, @Value("${chain.http.scan-step}") int scanStep) {
         super(web3j, kafkaTemplate, chainSyncService, scanStep, BlockchainEnum.ETHEREUM_SEPOLIA);
     }
 

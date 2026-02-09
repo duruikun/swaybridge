@@ -1,7 +1,7 @@
 package com.swaybridge.demo.controller;
 
 import com.swaybridge.common.model.dto.response.Result;
-import com.swaybridge.httpfeed.core.CheckPendingEventHttpFeed;
+import com.swaybridge.httpfeed.core.SimpleSepoliaCheckPendingEventHttpFeed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +26,7 @@ public class ExecutionController {
     }
 
     @Autowired
-    private CheckPendingEventHttpFeed feed;
+    private SimpleSepoliaCheckPendingEventHttpFeed feed;
 
     @GetMapping("todo2")
     public Result<BigInteger> todo2() throws Exception {
