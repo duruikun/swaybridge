@@ -1,4 +1,4 @@
-package com.swaybridge.httpfeed.config;
+package com.swaybridge.demo.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ public class Web3jConfig {
      *
      * @return
      */
-    @Bean
+    @Bean("sepolia-web3j")
     public Web3j web3j() {
         ScheduledExecutorService dummy = Executors.newSingleThreadScheduledExecutor();
         return Web3j.build(new HttpService(httpEndpoint), Long.MAX_VALUE, dummy);

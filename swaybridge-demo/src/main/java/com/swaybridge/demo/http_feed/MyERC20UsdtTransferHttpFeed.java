@@ -5,6 +5,8 @@ import com.swaybridge.common.enums.StandardEventSignatureEnum;
 import com.swaybridge.common.model.persistence.entity.BlockchainEvent;
 import com.swaybridge.datarepository.service.ChainHttpScanSyncService;
 import com.swaybridge.httpfeed.core.AbstractSpecificOneContractEventHttpFeed;
+import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -34,7 +36,7 @@ public class MyERC20UsdtTransferHttpFeed extends AbstractSpecificOneContractEven
             )
     );
 
-    protected MyERC20UsdtTransferHttpFeed(Web3j web3j, KafkaTemplate<String, String> kafkaTemplate, ChainHttpScanSyncService chainSyncService, @Value("${chain.http.scan-step}") int scanStep) {
+    protected MyERC20UsdtTransferHttpFeed(@Qualifier("sepolia-web3j") Web3j web3j, KafkaTemplate<String, String> kafkaTemplate, ChainHttpScanSyncService chainSyncService, @Value("${chain.http.scan-step}") int scanStep) {
         super(web3j, kafkaTemplate, chainSyncService, scanStep, BlockchainEnum.ETHEREUM_SEPOLIA);
     }
 

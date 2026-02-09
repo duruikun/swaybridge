@@ -6,8 +6,8 @@
 2. 业务模块需继承entity的类, 并加以PO后缀, 举例: entity包中 BlockchainEvent.java, 在业务模块中使用需要:
    BlockchainEventPO extends BlockchainEvent
 3. 如果你希望通过Java开发区块链智能合约相关业务, 并且希望提供以下功能:
-   1. 现成的Springboot-Web应用，Clone到本地后直接上手开发
-   2. Springboot模块化开发，模块分类清晰，二开难度极低，低耦合，自由扩缩容，按需引入依赖即可拥有对应能力
+   1. 标准的Springboot-Web应用，Clone到本地后，提供MVC项目结构Demo示例代码，清晰易上手
+   2. Springboot模块化开发，模块分类、项目结构清晰，二开难度极低，低耦合，自由扩缩容，按需引入依赖即可拥有对应能力
    3. 完备的Web3登录鉴权功能（用户钱包登录、签名、验签、生成JWT返回（基于Sa-Token）、自动更新用户状态、Redis存储登录信息等）
    4. WebSocket实时监听某个智能合约的某个事件（比如你想监听地址为0x123..合约的Transfer事件，全自动运行，只需要在启动类开启@EnableSpecificEventListener注解）
    5. WebSocket实时监听整个区块链的某个事件（比如你想监听Sepolia上的所有Transfer事件，@EnableGlobalListener）
