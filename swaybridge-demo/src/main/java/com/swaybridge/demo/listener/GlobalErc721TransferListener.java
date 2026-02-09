@@ -3,12 +3,14 @@ package com.swaybridge.demo.listener;
 import cn.hutool.json.JSONUtil;
 import com.swaybridge.common.enums.BlockchainEnum;
 import com.swaybridge.common.enums.StandardEventSignatureEnum;
-import com.swaybridge.common.model.persistence.entity.BlockchainEvent;
 import com.swaybridge.common.utils.EventFactory;
 import com.swaybridge.common.utils.TimeUtil;
+import com.swaybridge.datarepository.entity.BlockchainEventPO;
+import com.swaybridge.datarepository.service.BlockchainEventService;
 import com.swaybridge.demo.log_offramp.StandardErc721TransferOffRamp;
 import com.swaybridge.ws_listener_core.listener.AbstractGlobalTopicListener;
 import com.swaybridge.ws_listener_core.log_offramp.LogOffRamp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.web3j.abi.EventValues;
@@ -20,6 +22,9 @@ import java.util.Map;
 
 @Component
 public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
+
+    @Autowired
+    private BlockchainEventService blockchainEventService;
 
     protected GlobalErc721TransferListener(@Value("${web3.rpc.ws-url-sepolia}") String wsUrl) {
         super(wsUrl, null);
@@ -38,7 +43,7 @@ public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
     @Override
     protected void onEvent(Log log) {
 
-        BlockchainEvent event = new BlockchainEvent();
+        BlockchainEventPO event = new BlockchainEventPO();
         event.setChainId(BlockchainEnum.ETHEREUM_SEPOLIA.getChainId());
         event.setNetwork(BlockchainEnum.ETHEREUM_SEPOLIA.getName());
         event.setBlockNumber(log.getBlockNumber().longValue());
@@ -64,6 +69,8 @@ public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
         event.setCreateTime(TimeUtil.now());
 
         System.out.println("GlobalErc721TransferListener: " + event.getContractAddress());
+        blockchainEventService.save(event);
+
     }
 
     @SuppressWarnings("all")

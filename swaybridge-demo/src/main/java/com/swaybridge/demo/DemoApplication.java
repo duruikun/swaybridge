@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "com.swaybridge")
 @MapperScan("com.swaybridge.datarepository.mapper")
 @EnableSpecificEventListener
-@EnableGlobalListener
+//@EnableGlobalListener
 @EnableCheckingPendingEventSchedule
 @EnableEventHttpFeedSchedule
 public class DemoApplication {
