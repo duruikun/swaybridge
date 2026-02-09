@@ -63,6 +63,7 @@ public class MyERC20UsdtTransferListener extends AbstractSpecificEventListener<M
         eventPO.setRemoved(event.log.isRemoved());
 
         eventPO.setContractAddress(event.log.getAddress());
+        eventPO.setContractTags("ERC20");
         eventPO.setEventSignature(StandardEventSignatureEnum.ERC20_ERC721_TRANSFER_EVENT.getEventSignature());
         eventPO.setEventName(StandardEventSignatureEnum.ERC20_ERC721_TRANSFER_EVENT.getEventName());
 

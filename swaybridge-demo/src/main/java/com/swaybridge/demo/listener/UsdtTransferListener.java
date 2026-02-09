@@ -53,6 +53,7 @@ public class UsdtTransferListener extends AbstractSpecificEventListener<USDT.Tra
         event.setLogIndex(e.log.getLogIndex().intValue());
         event.setRemoved(e.log.isRemoved());
         event.setContractAddress(e.log.getAddress());
+        event.setContractTags("ERC20");
         event.setEventName(StandardEventSignatureEnum.ERC20_ERC721_TRANSFER_EVENT.getEventName());
         event.setTopic0(e.log.getTopics().getFirst());
         event.setTopic1(e.log.getTopics().size() > 1 ? e.log.getTopics().get(1) : null);

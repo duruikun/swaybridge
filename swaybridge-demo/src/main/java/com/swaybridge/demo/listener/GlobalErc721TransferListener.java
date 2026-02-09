@@ -50,6 +50,7 @@ public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
         event.setLogIndex(log.getLogIndex().intValue());
         event.setRemoved(log.isRemoved());
         event.setContractAddress(log.getAddress());
+        event.setContractTags("ERC721");
         event.setEventName(StandardEventSignatureEnum.ERC20_ERC721_TRANSFER_EVENT.getEventName());
         event.setTopic0(log.getTopics().getFirst());
         event.setTopic1(log.getTopics().size() > 1 ? log.getTopics().get(1) : null);

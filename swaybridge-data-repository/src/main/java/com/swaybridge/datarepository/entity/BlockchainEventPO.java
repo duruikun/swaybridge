@@ -30,6 +30,7 @@ public class BlockchainEventPO implements Serializable {
     private Boolean removed;        // 是否被回滚（链重组） 默认false
 
     private String contractAddress; // 合约地址
+    private String contractTags;    // 合约tags: ERC20 | ERC721 | ERC1155
     private String eventSignature;  // 事件签名，如 Transfer(address,address,uint256)
     private String eventName;       // 事件名，如 Transfer
 
