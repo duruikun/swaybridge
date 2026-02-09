@@ -48,6 +48,7 @@ sa-token:
   is-log: true                # 是否输出操作日志
 
 chain:
+  confirms: 6
   http:
     scan-step: 2000           # http补偿扫描区块数量
     scheduler:
