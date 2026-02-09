@@ -10,6 +10,7 @@ import com.swaybridge.datarepository.entity.BlockchainEventPO;
 import com.swaybridge.datarepository.service.BlockchainEventService;
 import com.swaybridge.ws_listener_core.listener.AbstractSpecificEventListener;
 import io.reactivex.Flowable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,7 @@ import org.web3j.tx.Contract;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Slf4j
 @Component
 public class MyERC20UsdtTransferListener extends AbstractSpecificEventListener<MyERC20Usdt.TransferEventResponse> {
 
@@ -77,13 +79,12 @@ public class MyERC20UsdtTransferListener extends AbstractSpecificEventListener<M
         eventPO.setStatus("pending");
         eventPO.setExtra(null);
 
-        eventPO.setSource("WS");
+        eventPO.setSource("ws-listener");
 
         eventPO.setCreateTime(TimeUtil.now());
 
-        System.out.println("eventPO = " + eventPO);
-
         blockchainEventService.save(eventPO);
+        log.info("MyERC20UsdtTransferListener onEvent save to db, tx={}", eventPO.getTxHash());
 
     }
 

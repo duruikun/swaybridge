@@ -62,7 +62,7 @@ public class UsdtTransferListener extends AbstractSpecificEventListener<USDT.Tra
         event.setTopic5(e.log.getTopics().size() > 5 ? e.log.getTopics().get(5) : null);
         event.setData(e.log.getData());
         event.setDecodedData(generateDecodedData(e.log));
-        event.setSource("WS");
+        event.setSource("ws-listener");
         event.setCreateTime(TimeUtil.now());
 
         System.out.println("UsdtTransferListenerSpecific: " + event.getContractAddress());

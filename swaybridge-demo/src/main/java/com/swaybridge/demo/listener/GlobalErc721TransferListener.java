@@ -59,7 +59,7 @@ public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
         event.setTopic5(log.getTopics().size() > 5 ? log.getTopics().get(5) : null);
         event.setData(log.getData());
         event.setDecodedData(generateDecodedData(log));
-        event.setSource("WS");
+        event.setSource("ws-listener");
         event.setCreateTime(TimeUtil.now());
 
         System.out.println("GlobalErc721TransferListener: " + event.getContractAddress());
