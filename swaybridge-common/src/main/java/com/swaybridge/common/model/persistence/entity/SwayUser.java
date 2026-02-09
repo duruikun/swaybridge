@@ -3,6 +3,7 @@ package com.swaybridge.common.model.persistence.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 与数据库表字段保持严格一致, 如果数据表发生修改, 需要同步修改com.swaybridge.common.model.persistence.entity和com.swaybridge.datarepository.entity
@@ -18,8 +19,9 @@ public class SwayUser implements Serializable {
     private String password;
     private String nickName;
     private String email;
-    private String createTime;
-    private String updateTime;
-    private String lastLoginTime;
+
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+    private LocalDateTime lastLoginTime;
 
 }

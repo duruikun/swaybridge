@@ -6,6 +6,7 @@ import com.swaybridge.common.enums.StandardEventSignatureEnum;
 import com.swaybridge.common.model.persistence.entity.BlockchainEvent;
 import com.swaybridge.common.smart_contracts.sepolia.usdt.USDT;
 import com.swaybridge.common.utils.EventFactory;
+import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.ws_listener_core.listener.AbstractSpecificEventListener;
 import io.reactivex.Flowable;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,8 +17,6 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.tx.Contract;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -64,7 +63,7 @@ public class UsdtTransferListener extends AbstractSpecificEventListener<USDT.Tra
         event.setData(e.log.getData());
         event.setDecodedData(generateDecodedData(e.log));
         event.setSource("WS");
-        event.setCreatedAt(LocalDateTime.now(ZoneId.of("Asia/Shanghai")));
+        event.setCreateTime(TimeUtil.now());
 
         System.out.println("UsdtTransferListenerSpecific: " + event.getContractAddress());
     }

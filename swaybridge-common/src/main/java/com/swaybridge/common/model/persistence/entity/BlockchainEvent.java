@@ -43,7 +43,7 @@ public class BlockchainEvent implements Serializable {
 
     private String source;          // 事件来源：WS / HTTP
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
 
 }

@@ -1,11 +1,11 @@
 package com.swaybridge.demo.listener;
 
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.swaybridge.common.enums.BlockchainEnum;
 import com.swaybridge.common.enums.StandardEventSignatureEnum;
 import com.swaybridge.common.smart_contracts.sepolia.MyERC20Usdt.MyERC20Usdt;
 import com.swaybridge.common.utils.EventFactory;
+import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.datarepository.entity.BlockchainEventPO;
 import com.swaybridge.datarepository.service.BlockchainEventService;
 import com.swaybridge.ws_listener_core.listener.AbstractSpecificEventListener;
@@ -19,8 +19,6 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.tx.Contract;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -81,7 +79,7 @@ public class MyERC20UsdtTransferListener extends AbstractSpecificEventListener<M
 
         eventPO.setSource("WS");
 
-        eventPO.setCreatedAt(LocalDateTime.now(ZoneId.of("Asia/Shanghai")));
+        eventPO.setCreateTime(TimeUtil.now());
 
         System.out.println("eventPO = " + eventPO);
 

@@ -5,6 +5,7 @@ import com.swaybridge.common.enums.BlockchainEnum;
 import com.swaybridge.common.enums.StandardEventSignatureEnum;
 import com.swaybridge.common.model.persistence.entity.BlockchainEvent;
 import com.swaybridge.common.utils.EventFactory;
+import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.demo.log_offramp.StandardErc721TransferOffRamp;
 import com.swaybridge.ws_listener_core.listener.AbstractGlobalTopicListener;
 import com.swaybridge.ws_listener_core.log_offramp.LogOffRamp;
@@ -14,8 +15,6 @@ import org.web3j.abi.EventValues;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.tx.Contract;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -61,7 +60,7 @@ public class GlobalErc721TransferListener extends AbstractGlobalTopicListener {
         event.setData(log.getData());
         event.setDecodedData(generateDecodedData(log));
         event.setSource("WS");
-        event.setCreatedAt(LocalDateTime.now());
+        event.setCreateTime(TimeUtil.now());
 
         System.out.println("GlobalErc721TransferListener: " + event.getContractAddress());
     }

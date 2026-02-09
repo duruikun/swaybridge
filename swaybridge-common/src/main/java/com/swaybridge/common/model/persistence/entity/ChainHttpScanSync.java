@@ -2,6 +2,8 @@ package com.swaybridge.common.model.persistence.entity;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 /**
  * HTTP RPC 扫描区块信息同步记录表
  * <p>
@@ -15,6 +17,7 @@ public class ChainHttpScanSync {
     private Long chainId;
     private String contractAddress;
     private Long lastBlock;
-    private String updateTime;
+
+    private LocalDateTime updateTime;
 
 }

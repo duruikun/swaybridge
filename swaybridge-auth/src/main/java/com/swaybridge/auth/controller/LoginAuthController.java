@@ -10,6 +10,7 @@ import com.swaybridge.auth.model.dto.request.VerifyReq;
 import com.swaybridge.auth.utils.NonceUtil;
 import com.swaybridge.common.constants.RedisKeyConstants;
 import com.swaybridge.common.model.dto.response.Result;
+import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.datarepository.entity.SwayUserPO;
 import com.swaybridge.datarepository.service.SwayUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,7 +101,7 @@ public class LoginAuthController {
             SwayUserPO po = new SwayUserPO();
             po.setAddress(verifyReq.getAddress());
             po.setChainId(verifyReq.getChainId());
-            String timeNow = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            LocalDateTime timeNow = TimeUtil.now();
             po.setCreateTime(timeNow);
             po.setLastLoginTime(timeNow);
             swayUserService.save(po);
@@ -108,7 +109,7 @@ public class LoginAuthController {
             UpdateWrapper<SwayUserPO> updateWrapper = new UpdateWrapper<>();
             updateWrapper.eq("address", verifyReq.getAddress());
             updateWrapper.eq("chain_id", verifyReq.getChainId());
-            updateWrapper.set("last_login_time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            updateWrapper.set("last_login_time", TimeUtil.now());
             swayUserService.update(updateWrapper);
         }
 

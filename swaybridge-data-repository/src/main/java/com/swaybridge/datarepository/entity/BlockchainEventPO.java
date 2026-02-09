@@ -48,7 +48,7 @@ public class BlockchainEventPO implements Serializable {
 
     private String source;          // 事件来源：WS / HTTP
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
 
 }

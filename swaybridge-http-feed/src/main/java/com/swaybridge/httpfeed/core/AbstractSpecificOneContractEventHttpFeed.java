@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.swaybridge.common.enums.BlockchainEnum;
 import com.swaybridge.common.model.persistence.entity.BlockchainEvent;
+import com.swaybridge.common.utils.TimeUtil;
 import com.swaybridge.datarepository.entity.ChainHttpScanSyncPO;
 import com.swaybridge.datarepository.service.ChainHttpScanSyncService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +20,6 @@ import org.web3j.protocol.core.methods.response.EthLog;
 import org.web3j.protocol.core.methods.response.Log;
 
 import java.math.BigInteger;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -48,9 +47,13 @@ public abstract class AbstractSpecificOneContractEventHttpFeed {
 
     // 子类实现
     protected abstract BigInteger chainId();
+
     protected abstract String contractAddress();
+
     protected abstract List<Event> events();
+
     protected abstract BigInteger currentMaxBlock() throws Exception;   // // 当前可扫描到的最大区块(通常=latest-confirmBlocks)
+
     protected abstract BlockchainEvent doTidyResult(Log log, Event event);
 
     // 获取区块上指定合约扫描的最新进度
@@ -64,7 +67,7 @@ public abstract class AbstractSpecificOneContractEventHttpFeed {
             _entity.setChainId(this.chainId().longValue());
             _entity.setContractAddress(this.contractAddress());
             _entity.setLastBlock(0L);
-            _entity.setUpdateTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            _entity.setUpdateTime(TimeUtil.now());
             chainSyncService.save(_entity);
             return _entity;
         }
@@ -96,7 +99,7 @@ public abstract class AbstractSpecificOneContractEventHttpFeed {
         }
 
         progress.setLastBlock(to.longValue());
-        progress.setUpdateTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        progress.setUpdateTime(TimeUtil.now());
 
         LambdaUpdateWrapper<ChainHttpScanSyncPO> updateWrapper = new LambdaUpdateWrapper<>();
         updateWrapper.eq(ChainHttpScanSyncPO::getChainId, this.chainId());
