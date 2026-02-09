@@ -51,7 +51,7 @@ chain:
   http:
     scan-step: 2000           # http补偿扫描区块数量
     scheduler:
-      feed-interval: 5000     # 定时任务执行一次http feed的周期 600000ms = 10min
+      feed-interval: 5000     # 定时任务执行一次http feed的周期 测试为了看效果, 调整成5000 5s, 生产环境需考虑, 推荐: 600000ms = 10min
       initial-delay: 5000     # 服务启动到第一次执行的延迟时间
       check-pending: 3600000  # 检查pending事务的执行周期
 
