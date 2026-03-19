@@ -69,8 +69,12 @@ public class MyERC20UsdtTransferHttpFeed extends AbstractSpecificOneContractEven
         String to = (String) eventValues.getIndexedValues().get(1).getValue();
         BigInteger value = (BigInteger) eventValues.getNonIndexedValues().get(0).getValue();
 
+        BlockchainEvent _event = new BlockchainEvent();
+        _event.setEventName(event.getName());
+        _event.setBlockHash(log.getBlockHash());
+
         System.out.println(log);
 
-        return null;
+        return _event;
     }
 }

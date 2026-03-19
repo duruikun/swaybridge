@@ -1,6 +1,7 @@
 package com.swaybridge.httpfeed.core;
 
 import cn.hutool.core.util.ObjUtil;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.swaybridge.common.enums.BlockchainEnum;
@@ -114,7 +115,7 @@ public abstract class AbstractSpecificOneContractEventHttpFeed {
         for (EthLog.LogResult<?> r : ethLog.getLogs()) {
             Log _log = (Log) r.get();
             BlockchainEvent useEvent = doTidyResult(_log, event);
-            // kafkaTemplate.send("chain.raw.event", useEvent.getTxHash(), JSONUtil.toJsonStr(useEvent));
+            kafkaTemplate.send("chain.raw.event", useEvent.getTxHash(), JSONUtil.toJsonStr(useEvent));
             log.info("HTTP feed 推送成功 tx={}", _log.getTransactionHash());
         }
     }

@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableSpecificEventListener
 //@EnableGlobalListener
 //@EnableCheckingPendingEventSchedule
-//@EnableEventHttpFeedSchedule
+@EnableEventHttpFeedSchedule
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
