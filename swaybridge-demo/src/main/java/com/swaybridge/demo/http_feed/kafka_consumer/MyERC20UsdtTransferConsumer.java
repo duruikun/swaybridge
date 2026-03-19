@@ -1,7 +1,5 @@
 package com.swaybridge.demo.http_feed.kafka_consumer;
 
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
 import com.swaybridge.common.enums.BlockchainEnum;
 import com.swaybridge.datarepository.entity.BlockchainEventPO;
