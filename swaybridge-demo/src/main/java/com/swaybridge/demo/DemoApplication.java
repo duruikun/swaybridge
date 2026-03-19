@@ -14,8 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
 @MapperScan("com.swaybridge.datarepository.mapper")
 @EnableSpecificEventListener
 //@EnableGlobalListener
-@EnableCheckingPendingEventSchedule
-@EnableEventHttpFeedSchedule
+//@EnableCheckingPendingEventSchedule
+//@EnableEventHttpFeedSchedule
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
